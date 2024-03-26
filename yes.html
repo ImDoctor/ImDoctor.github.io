@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Sample Website</title>
+    <script src="index.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url("bg.svg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .blurry-box {
+            width: 60%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(8px);
+        }
+
+        .message {
+            font-family: 'Arimo';
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+        }
+
+        /* Doğru cevap mesajını güçlü ve yeşil yap */
+        .correct-answer {
+            font-weight: bold;
+            color: green;
+        }
+
+        /* Soru butonunu stil */
+        #next-question-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Soru butonunun hover efekti */
+        #next-question-button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="blurry-box">
+        <p class="message">Boşluk doldurmaca!</p>
+
+        <!-- Soru ve giriş alanı eklendi -->
+        <p class="message" style="font-weight: bold;">Türkiye'nin başkenti neresidir?</p>
+        <input type="text" id="answer" placeholder="Cevabınızı buraya yazınız">
+        
+    </div>
+
+    <script>
+        // Cevabı kontrol eden fonksiyon
+        function checkAnswer() {
+            var userAnswer = document.getElementById("answer").value.trim().toLowerCase();
+            var correctAnswer = "ankara"; // Doğru cevap
+
+            // Kullanıcının cevabı doğruysa
+            if (userAnswer === correctAnswer) {
+                document.getElementById("answer").classList.add("correct-answer"); // Giriş alanını yeşil yap
+                document.getElementById("answer").value = "Doğru cevap!"; // Giriş alanına "Doğru cevap!" mesajını yaz
+                document.getElementById("answer").disabled = true; // Giriş alanını devre dışı bırak
+
+                // Sıradaki soru butonunu görünür yap
+                document.getElementById("next-question-button").style.display = "block";
+            }
+        }
+
+        // Enter tuşuna basıldığında cevabı kontrol et
+        document.getElementById("answer").addEventListener("keyup", function(event) {
+            if (event.keyCode === 13) {
+                event.preventDefault();
+                checkAnswer();
+            }
+        });
+
+        function openNextQuestion() {
+            window.location.href = "question2.html";
+        }
+    </script>
+
+    <!-- Sıradaki soru butonu -->
+    <button id="next-question-button" style="display: none;" onclick="openNextQuestion()">Sıradaki Soru</button>
+</body>
+</html>

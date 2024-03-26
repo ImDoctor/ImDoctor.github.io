@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Sample Website</title>
+    <style>
+        body {
+            background-image: url("bg.svg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .blurry-box {
+            width: 60%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(8px);
+        }
+
+        .message {
+            font-family: 'Pacifico', cursive;
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            flex-direction: row; /* Butonları yatay hizala */
+        }
+
+        .button {
+            padding: 12px 35px;
+            font-size: 17px;
+            font-weight: 500;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 0 10px;
+            position: relative;
+            transition: all 0.01s ease-in-out;
+            outline: none; /* Seçilebilirlikten çıkarma */
+        }
+
+        .button:hover {
+            background-color: transparent;
+            color: #333;
+        }
+
+        .button.green {
+            background: #28a745;
+            color: #fff;
+            border-color: #28a745;
+        }
+
+        .button.red {
+            background: #dc3545;
+            color: #fff;
+            border-color: #dc3545;
+        }
+
+        button {
+  position: relative;
+  padding: 12px 35px;
+  background: #fec195;
+  font-size: 17px;
+  font-weight: 500;
+  color: #181818;
+  border: 3px solid #fec195;
+  border-radius: 8px;
+  box-shadow: 0 0 0 #fec1958c;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.star-1 {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 25px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 1s cubic-bezier(0.05, 0.83, 0.43, 0.96);
+}
+
+.star-2 {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-3 {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  width: 5px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-4 {
+  position: absolute;
+  top: 20%;
+  left: 40%;
+  width: 8px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-5 {
+  position: absolute;
+  top: 25%;
+  left: 45%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 0.6s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-6 {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  width: 5px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 0.8s ease;
+}
+
+button:hover {
+  background: transparent;
+  color: #fec195;
+  box-shadow: 0 0 25px #fec1958c;
+}
+
+button:hover .star-1 {
+  position: absolute;
+  top: -80%;
+  left: -30%;
+  width: 25px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+}
+
+button:hover .star-2 {
+  position: absolute;
+  top: -25%;
+  left: 10%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+}
+
+button:hover .star-3 {
+  position: absolute;
+  top: 55%;
+  left: 25%;
+  width: 5px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+}
+
+button:hover .star-4 {
+  position: absolute;
+  top: 30%;
+  left: 80%;
+  width: 8px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+}
+
+button:hover .star-5 {
+  position: absolute;
+  top: 25%;
+  left: 115%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+}
+
+button:hover .star-6 {
+  position: absolute;
+  top: 5%;
+  left: 60%;
+  width: 5px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+}
+
+.fil0 {
+  fill: #fffdef;
+}
+
+    </style>
+</head>
+<body>
+    <div class="blurry-box">
+        <p class="message">Hiç kimsenin baskısı altında kalmadan Burak'ı eşin olarak kabul ediyor musun?</p>
+        <div class="button-container">
+            <button class="button green" onclick="clickEvetButton()">
+                Evet
+                <div class="star-1">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xml:space="preserve"
+                    version="1.1"
+                    style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                    viewBox="0 0 784.11 815.53"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <defs></defs>
+                    <g id="Layer_x0020_1">
+                      <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+                      <path
+                        class="fil0"
+                        d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+                <div class="star-2">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xml:space="preserve"
+                    version="1.1"
+                    style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                    viewBox="0 0 784.11 815.53"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <defs></defs>
+                    <g id="Layer_x0020_1">
+                      <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+                      <path
+                        class="fil0"
+                        d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+                <div class="star-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xml:space="preserve"
+                    version="1.1"
+                    style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                    viewBox="0 0 784.11 815.53"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <defs></defs>
+                    <g id="Layer_x0020_1">
+                      <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+                      <path
+                        class="fil0"
+                        d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+                <div class="star-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xml                :space="preserve"
+                    version="1.1"
+                    style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                    viewBox="0 0 784.11 815.53"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <defs></defs>
+                    <g id="Layer_x0020_1">
+                      <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+                      <path
+                        class="fil0"
+                        d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+                <div class="star-5">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xml:space="preserve"
+                    version="1.1"
+                    style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                    viewBox="0 0 784.11 815.53"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <defs></defs>
+                    <g id="Layer_x0020_1">
+                      <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+                      <path
+                        class="fil0"
+                        d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+                <div class="star-6">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    xml:space="preserve"
+                    version="1.1"
+                    style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+                    viewBox="0 0 784.11 815.53"
+                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                  >
+                    <defs></defs>
+                    <g id="Layer_x0020_1">
+                      <metadata id="CorelCorpID_0Corel-Layer"></metadata>
+                      <path
+                        class="fil0"
+                        d="M392.05 0c-20.9,210.08 -184.06,378.41 -392.05,407.78 207.96,29.37 371.12,197.68 392.05,407.74 20.93,-210.06 184.09,-378.37 392.05,-407.74 -207.98,-29.38 -371.16,-197.69 -392.06,-407.78z"
+                      ></path>
+                    </g>
+                  </svg>
+                </div>
+              </button>              
+            <button class="button no-button red" onmouseover="moveButton()" tabindex="-1">Hayır</button>
+        </div>
+    </div>
+
+    <script>
+        function moveButton() {
+            var button = document.querySelector('.no-button');
+            var buttonWidth = button.offsetWidth;
+            var buttonHeight = button.offsetHeight;
+            var maxX = document.documentElement.clientWidth - buttonWidth;
+            var maxY = document.documentElement.clientHeight - buttonHeight;
+            var randomX = Math.floor(Math.random() * (maxX - 200)); // 200 piksel kenarda
+            var randomY = Math.floor(Math.random() * (maxY - 200)); // 200 piksel kenarda
+
+            button.style.left = Math.random(100) * 500 + 'px';
+            button.style.top = Math.random(100) * 500 + 'px';
+        }
+        function clickEvetButton() {
+            window.location.href = "yes.html";
+        }
+    </script>
+</body>
+</html>

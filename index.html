@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Sample Website</title>
+    <script src="index.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-image: url("bg.svg");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .center {
+            position: absolute;
+            color:white;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        .center p {
+            font-family: "Arimo", cursive;
+            font-weight: 400;
+            font-size: 58px;
+            font-style: normal;
+        }
+        .center h1 {
+            font-family: "Pacifico", cursive;
+            font-weight: 400;
+            font-size: 58px;
+            font-style: normal;
+            margin-top: -5rem;
+            margin-bottom: -1rem;
+            text-shadow: rgba(250,105,119,100) 0px 0px 32px;
+        }
+
+        button {
+ --glow-color: rgb(255, 176, 229);
+ --glow-spread-color: rgba(255, 123, 196, 0.781);
+ --enhanced-glow-color: rgb(255, 206, 247);
+ --btn-color: rgb(136, 61, 117);
+ border: .25em solid var(--glow-color);
+ padding: 1em 3em;
+ color: var(--glow-color);
+ font-size: 15px;
+ font-weight: bold;
+ background-color: var(--btn-color);
+ border-radius: 1em;
+ outline: none;
+ box-shadow: 0 0 1em .25em var(--glow-color),
+        0 0 4em 1em var(--glow-spread-color),
+        inset 0 0 .75em .25em var(--glow-color);
+ text-shadow: 0 0 .5em var(--glow-color);
+ position: relative;
+ transition: all 0.3s;
+}
+
+button::after {
+ pointer-events: none;
+ content: "";
+ position: absolute;
+ top: 120%;
+ left: 0;
+ height: 100%;
+ width: 100%;
+ background-color: var(--glow-spread-color);
+ filter: blur(2em);
+ opacity: .7;
+ transform: perspective(1.5em) rotateX(35deg) scale(1, .6);
+}
+
+button:hover {
+ color: var(--btn-color);
+ background-color: var(--glow-color);
+ box-shadow: 0 0 1em .25em var(--glow-color),
+        0 0 4em 2em var(--glow-spread-color),
+        inset 0 0 .75em .25em var(--glow-color);
+}
+
+button:active {
+ box-shadow: 0 0 0.6em .25em var(--glow-color),
+        0 0 2.5em 2em var(--glow-spread-color),
+        inset 0 0 .5em .25em var(--glow-color);
+}
+    </style>
+</head>
+<body>
+    <div class="center">
+        <h1>Nida</h1>
+        <button class="learn-more" style="margin-top: 50px;" onclick="openQuestionPage()"> Merhaba!</button>
+    </div>
+
+    <script>
+        function openQuestionPage() {
+            window.location.href = "question.html";
+        }
+    </script>
+</body>
+</html>
